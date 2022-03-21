@@ -143,4 +143,12 @@ body{
 	border-radius: 5px;
 	border: 1px solid #cccccc; 
 }
-
+#totalq{
+    margin-left: 10%;
+    padding: 4%;
+}
+td{
+    padding: 4%;
+    text-align: center;
+    
+}

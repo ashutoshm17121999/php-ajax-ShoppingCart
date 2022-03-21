@@ -1,13 +1,22 @@
+<?php
+
+include 'config.php';
+
+?>
+
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>
 		Products
 	</title>
-	<link href="style.css" type="text/css" rel="stylesheet">
+	<!-- <link href="style.css" type="text/css" rel="stylesheet"> -->
+	<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-	<div id="header">
+	<!-- <div id="header">
 		<h1 id="logo">Logo</h1>
 		<nav>
 			<ul id="menu">
@@ -16,48 +25,61 @@
 				<li><a href="contact.php">Contact</a></li>
 			</ul>
 		</nav>
-	</div>
+	</div> -->
+	<?php
+	include 'header.php';
+	?>
 	<div id="main">
+
 		<div id="products">
-			<div id="product-101" class="product">
-				<img src="images/football.png">
-				<h3 class="title"><a href="#">Product 101</a></h3>
-				<span>Price: $150.00</span>
-				<a class="add-to-cart" href="#">Add To Cart</a>
-			</div>
-			<div id="product-101" class="product">
-				<img src="images/tennis.png">
-				<h3 class="title"><a href="#">Product 102</a></h3>
-				<span>Price: $120.00</span>
-				<a class="add-to-cart" href="#">Add To Cart</a>
-			</div>
-			<div id="product-101" class="product">
-				<img src="images/basketball.png">
-				<h3 class="title"><a href="#">Product 103</a></h3>
-				<span>Price: $90.00</span>
-				<a class="add-to-cart" href="#">Add To Cart</a>
-			</div>
-			<div id="product-101" class="product">
-				<img src="images/table-tennis.png">
-				<h3 class="title"><a href="#">Product 104</a></h3>
-				<span>Price: $110.00</span>
-				<a class="add-to-cart" href="#">Add To Cart</a>
-			</div>
-			<div id="product-101" class="product">
-				<img src="images/soccer.png">
-				<h3 class="title"><a href="#">Product 105</a></h3>
-				<span>Price: $80.00</span>
-				<a class="add-to-cart" href="#">Add To Cart</a>
-			</div>
+
+
+			<?php
+			foreach ($ptoducts as $id => $arr) {
+
+				foreach ($arr as $price => $name) {
+
+					echo "<form action='' method=GET><div id=product-" . $id . " class=product>
+				<img src=" . $name . ">
+				<h3  class=title><a href=#>Product" . $id . "</a></h3>
+				<span>" . $price . "</span>
+			
+				
+				<a class=add-to-cart  href=#  data-pri=" . $prices[$id] . " data-pid=" . $id . " data-price=" . $price . " action=add" . ">Add To Cart</a>
+				
+			</div></form>";
+				}
+			}
+
+			?>
+
+		</div>
+
+		<div id="table">
+			<?php
+			// disply();
+			// echo "<h3> your  total price = " . $_SESSION['tprice'] . "</h3>";
+			// echo "<h3> total quantity = " . $_SESSION['tqnty'] . "</h3>";
+			?>
+
+
+
 		</div>
 	</div>
-	<div id="footer">
-		<nav>
-			<ul id="footer-links">
-				<li><a href="#">Privacy</a></li>
-				<li><a href="#">Declaimers</a></li>
-			</ul>
-		</nav>
+	<div id="totalq">
+
 	</div>
+	<div id="totalp">
+
+	</div>
+
+	<?php
+	include 'footer.php';
+
+	?>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="script.js"></script>
 </body>
+
 </html>
